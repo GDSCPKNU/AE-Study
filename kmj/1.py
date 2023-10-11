@@ -17,7 +17,7 @@
 visited = [[[[False]*m for _ in range(n)] for _ in range(m)] for _ in range(n)
 -------------------------------------------초기화
 
-네 방향에 대해 빨간색공, 파란색공 위치, depth와 visited를 가지고 반복한다.
+네 방향에 대해 빨간색공, 파란색공 위치, depth를 가지고 반복한다.
 만약 depth가 10을 초과한다면 break 
 
 받은 방향에 대해서 현재 파란색,빨간색 공의 위치를 움직인다 (move 작성) 위치와 움직인거리 return 
