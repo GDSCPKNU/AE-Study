@@ -22,7 +22,7 @@ def solution(info, edges):
     while q:
         now, sheep, wolf, nextNode = q.popleft()
         answer = max(answer,sheep)
-        nextNode.add(graph[now]) 
+        nextNode.update(graph[now]) 
         
         for next in nextNode:
             #늑대의 경우
