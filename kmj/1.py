@@ -21,8 +21,8 @@ visited = [[[[False]*m for _ in range(n)] for _ in range(m)] for _ in range(n)
 만약 depth가 10을 초과한다면 break 
 
 받은 방향에 대해서 현재 파란색,빨간색 공의 위치를 움직인다 (move 작성) 위치와 움직인거리 return 
-    벽에서만나는 경우, 이동거리가 긴 공이 끝에서 한칸 뒤로 간다. 
-                    이동거리가 짧은 공은 끝까지 이동한다. 
+생길 수 있는 예외? 벽에서만나는 경우, 이동거리가 긴 공이 끝에서 한칸 뒤로 간다. 
+                                이동거리가 짧은 공은 끝까지 이동한다. 
     
 '''
 from collections import deque
