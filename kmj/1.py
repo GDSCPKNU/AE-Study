@@ -14,7 +14,7 @@
 네가지 방향에 대해 미리 변수 선언해준다. (왼쪽 ,오른쪽 ,위,아래)
 두 공의 위치를 가진 visited를 선언한다.
 [[1][2][3][4]] 1,2  3,4 파란색 빨간색 공 위치 
-visited = [[0]* max(m,n) for _ in range(4)]
+visited = [[[[False]*m for _ in range(n)] for _ in range(m)] for _ in range(n)
 -------------------------------------------
 
 네 방향에 대해 빨간색공, 파란색공 위치, depth와 visited를 가지고 반복한다.
