@@ -1,9 +1,8 @@
-import java.util.Collections;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
+package week2;
 
-class Solution {
+import java.util.Arrays;
+
+class 전화번호_목록 {
     // 정렬 한다음에 탐색
     public boolean solution(String[] phoneBook) {
         Arrays.sort(phoneBook);

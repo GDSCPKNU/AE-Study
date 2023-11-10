@@ -1,3 +1,5 @@
+package week1;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +12,7 @@ class 가장_큰_수 {
         }
 
         // 1. 사전순 내림차순 정렬
-//        Collections.sort(stringList, Collections.reverseOrder());
+        Collections.sort(stringList, Collections.reverseOrder());
         // 람다식 숙지 필요
         Collections.sort(StringList, (a, b) -> (b + a).compareTo(a + b));
 
