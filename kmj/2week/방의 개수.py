@@ -70,7 +70,7 @@ def solution(arrows):
     visited[now] = True
 
     for arrow in arrows:
-        for __ in range(2):
+        for __ㅌㅇㅊ  in range(2):
             move_direction = arrow_to_direction(arrow)
             next_pos = get_next_position(now, move_direction)
 

@@ -71,4 +71,4 @@ def bfs(edges):
 
 def count_max_depth_nodes(visited):
     max_depth = max(visited)
-    return sum(1 for depth in visited if depth == max_depth)
+    return visited.count(max_depth)
