@@ -65,8 +65,7 @@ def bfs(edges):
             if not visited[next_node]:
                 next_depth = now_depth + 1
                 visited[next_node] = next_depth
-                q.append([next_node, next_depth])
-                
+                q.append([next_node, next_depth])   
     return visited
 
 def count_max_depth_nodes(visited):
