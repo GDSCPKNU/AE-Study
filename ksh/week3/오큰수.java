@@ -1,9 +1,10 @@
 package week3;
 
 import java.io.*;
-import java.util.*;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
-class 오큰수 {
+public class 오큰수 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -26,6 +27,7 @@ class 오큰수 {
         while (!stack.empty()) {
             arr[stack.pop()] = -1;
         }
+
 
         for (int num : arr) {
             bw.write(num + " ");
