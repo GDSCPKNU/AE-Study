@@ -6,26 +6,27 @@ const DIRECTIONS = [
 
 const DESTROYED_MARK = "-";
 
-const getUniqueArray = (arr) => {
+const getUniquePositions = (arr) => {
   return [...new Set(arr.join("|").split("|"))].map((v) =>
     v.split(",").map((v) => Number(v))
   );
 };
 
-const countDestroyedBlocks = (board) => {
-  const destoryedBlocks = board.reduce((acc, row, i) => {
-    const destoryedBlocksInRow = row
+const countDestructedBlocks = (board) => {
+  const destructedBlocks = board.reduce((acc, row, i) => {
+    const destructedBlocksInRow = row
       .map((col, j) => col === DESTROYED_MARK && [i, j])
       .filter((value) => !!value);
 
-    return acc + destoryedBlocksInRow.length;
+    return acc + destructedBlocksInRow.length;
   }, 0);
 
-  return destoryedBlocks;
+  return destructedBlocks;
 };
 
 const changePositions = (row, col, board, positions) => {
   const changeBlocks = [];
+
   for (let j = 0; j < col; j++) {
     for (let i = row - 1; i >= 0; i -= 1) {
       if (positions.some((pos) => i === pos[0] && j === pos[1])) {
@@ -44,7 +45,7 @@ const changePositions = (row, col, board, positions) => {
   }
 };
 
-const updatePositions = (positions, board, targetPosition) => {
+const checkDestructibleBlocks = (positions, board, targetPosition) => {
   const [x, y] = targetPosition;
 
   if (
@@ -53,34 +54,31 @@ const updatePositions = (positions, board, targetPosition) => {
       return board[x + dx] && board[x + dx][y + dy] === board[x][y];
     })
   ) {
-    const destoryedPosition = [
+    const destoryedPositions = [
       ...DIRECTIONS.map((dir) => [x + dir[0], y + dir[1]]),
       [x, y],
     ];
-    positions.push(...destoryedPosition);
+    positions.push(...destoryedPositions);
   }
 };
 
 function solution(row, col, board) {
   const gameBoard = board.map((row) => row.split(""));
+
   while (true) {
     const positions = [];
     gameBoard.forEach((row, i) => {
       row.forEach((col, j) => {
         if (col === DESTROYED_MARK) return;
-        updatePositions(positions, gameBoard, [i, j]);
+        checkDestructibleBlocks(positions, gameBoard, [i, j]);
       });
     });
 
     if (!positions.length) {
-      return countDestroyedBlocks(gameBoard);
+      return countDestructedBlocks(gameBoard);
     }
 
-    const uniquePositions = getUniqueArray(positions);
+    const uniquePositions = getUniquePositions(positions);
     changePositions(row, col, gameBoard, uniquePositions);
   }
 }
-
-console.log(
-  solution(6, 6, ["TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"])
-);
